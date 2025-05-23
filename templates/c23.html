@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Future Directions in Climate Modeling - Flowchart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 40px;
+    }
+
+    .flowchart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      position: relative;
+    }
+
+    .node {
+      background: #3498db;
+      color: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+      text-align: center;
+      width: 300px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .node::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 2px solid #3498db;
+      height: 30px;
+    }
+
+    .node:last-child::after {
+      display: none;
+    }
+
+    .details {
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #e0f7fa;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Future Directions in Climate Modeling</h1>
+
+  <div class="flowchart">
+    <div class="node">
+      Advances in AI and Machine Learning
+      <div class="details">
+        • Pattern recognition<br>
+        • Model calibration<br>
+        • Data-driven parameterization<br>
+        • Real-time forecasting
+      </div>
+    </div>
+
+    <div class="node">
+      High-Resolution Modeling
+      <div class="details">
+        • Extreme weather events<br>
+        • Fine-scale simulation<br>
+        • Regional impact analysis<br>
+        • Computational innovations
+      </div>
+    </div>
+
+    <div class="node">
+      Climate-Health & Energy Nexus
+      <div class="details">
+        • Public health impacts<br>
+        • Disease & heat mapping<br>
+        • Energy system feedbacks<br>
+        • Integrated policies
+      </div>
+    </div>
+
+    <div class="node">
+      Collaborative & Open-Source Platforms
+      <div class="details">
+        • Transparent software<br>
+        • Global collaboration<br>
+        • Data sharing infrastructure<br>
+        • Community-driven development
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

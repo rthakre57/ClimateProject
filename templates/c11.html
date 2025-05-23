@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Systems Theory and Climate Dynamics Flowchart</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f9fc;
+      padding: 40px;
+      color: #333;
+    }
+
+    .flowchart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .node {
+      background: #e3f2fd;
+      border: 2px solid #2196f3;
+      border-radius: 8px;
+      padding: 16px 24px;
+      margin: 10px 0;
+      width: 320px;
+      text-align: center;
+      font-weight: bold;
+      position: relative;
+    }
+
+    .arrow-down {
+      width: 0;
+      height: 0;
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-top: 16px solid #2196f3;
+      margin: -5px 0;
+    }
+
+    .node-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .node-small {
+      width: 240px;
+      font-weight: normal;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Systems Theory and Climate Dynamics Flowchart</h1>
+
+  <div class="flowchart">
+    <div class="node">Systems Theory</div>
+    <div class="arrow-down"></div>
+
+    <div class="node">Climate as a Dynamic System</div>
+    <div class="arrow-down"></div>
+
+    <div class="node">Interconnected Subsystems</div>
+    <div class="arrow-down"></div>
+
+    <div class="node-group">
+      <div class="node node-small">Atmosphere</div>
+      <div class="node node-small">Hydrosphere</div>
+      <div class="node node-small">Cryosphere</div>
+      <div class="node node-small">Lithosphere</div>
+      <div class="node node-small">Biosphere</div>
+    </div>
+
+    <div class="arrow-down"></div>
+    <div class="node">Feedback Loops</div>
+    <div class="arrow-down"></div>
+
+    <div class="node-group">
+      <div class="node node-small">Positive Feedback (e.g. Ice-Albedo)</div>
+      <div class="node node-small">Negative Feedback (e.g. Cloud Cover)</div>
+    </div>
+
+    <div class="arrow-down"></div>
+    <div class="node">Stability & Tipping Points</div>
+  </div>
+
+</body>
+</html>

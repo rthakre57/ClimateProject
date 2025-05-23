@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Climate Change Dynamics Simulator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background-color: #f0f2f6;
+      color: #333;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 1.5rem;
+      font-weight: bold;
+    }
+
+    input[type="range"] {
+      width: 100%;
+    }
+
+    .value {
+      font-size: 0.9em;
+      color: #555;
+    }
+
+    .button {
+      margin-top: 2rem;
+      padding: 10px 20px;
+      background-color: #0072ff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .metrics {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #e6f7ff;
+      border-left: 5px solid #0072ff;
+    }
+
+    .metric-label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🌍 Climate Change Dynamics Simulator</h1>
+    <p>A system-based ML model to explore climate change feedbacks.</p>
+
+    <label for="co2">CO₂ Concentration (ppm): <span id="co2Value">400</span></label>
+    <input type="range" id="co2" name="co2" min="300" max="600" value="400" oninput="updateLabel('co2')">
+
+    <label for="ice">Ice Cover (million sq km): <span id="iceValue">10</span></label>
+    <input type="range" id="ice" name="ice" min="0" max="20" value="10" oninput="updateLabel('ice')">
+
+    <label for="sea">Sea Level Rise (cm): <span id="seaValue">30</span></label>
+    <input type="range" id="sea" name="sea" min="0" max="100" value="30" oninput="updateLabel('sea')">
+
+    <button class="button" onclick="predictTemperature()">Predict Temperature</button>
+
+    <div id="results" class="metrics" style="display: none;">
+      <div><span class="metric-label">Predicted Temperature (ML):</span> <span id="mlTemp">--</span> °C</div>
+      <div><span class="metric-label">Estimated Temperature (System Model):</span> <span id="systemTemp">--</span> °C</div>
+    </div>
+  </div>
+
+  <script>
+    function updateLabel(id) {
+      document.getElementById(id + "Value").textContent = document.getElementById(id).value;
+    }
+
+    function simulateFeedback(CO2, Ice_Cover, Sea_Level) {
+      // System dynamics logic
+      return (14 + 0.02 * CO2 - 0.5 * Ice_Cover + 0.03 * Sea_Level).toFixed(2);
+    }
+
+    async function predictTemperature() {
+      const CO2 = parseInt(document.getElementById('co2').value);
+      const Ice_Cover = parseInt(document.getElementById('ice').value);
+      const Sea_Level = parseInt(document.getElementById('sea').value);
+
+      // Call backend API to get ML prediction
+      let mlTemp = "--";
+      try {
+        const response = await fetch('http://localhost:5000/predict', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ CO2, Ice_Cover, Sea_Level })
+        });
+        const data = await response.json();
+        mlTemp = data.predicted_temperature.toFixed(2);
+      } catch (err) {
+        console.error("Error fetching ML prediction:", err);
+        mlTemp = "Error";
+      }
+
+      const systemTemp = simulateFeedback(CO2, Ice_Cover, Sea_Level);
+
+      document.getElementById('mlTemp').textContent = mlTemp;
+      document.getElementById('systemTemp').textContent = systemTemp;
+      document.getElementById('results').style.display = "block";
+    }
+  </script>
+</body>
+</html>

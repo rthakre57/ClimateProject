@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Challenges and Limitations Flowchart</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: #f4f7f8;
+  }
+  .flowchart {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .node {
+    background: #2c3e50;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  .sub-node {
+    background: #34495e;
+    color: #ecf0f1; /* light text for contrast */
+    font-weight: normal;
+    font-size: 14px;
+    padding: 10px 15px;
+    margin: 10px auto;
+    width: 280px;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  }
+  .connector {
+    width: 4px;
+    background: #2c3e50;
+    margin: 0 auto;
+  }
+  .vertical-space {
+    height: 20px;
+  }
+  /* Flex container for sub-nodes */
+  .sub-nodes-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+  }
+</style>
+</head>
+<body>
+  <div class="flowchart">
+
+    <div class="node">Challenges and Limitations</div>
+    <div class="connector" style="height: 30px;"></div>
+
+    <div class="sub-nodes-container">
+      <div>
+        <div class="node" style="background:#e67e22;">Computational Complexity</div>
+        <div class="sub-node">High-performance computing</div>
+        <div class="sub-node">Efficient numerical methods</div>
+        <div class="sub-node">Balancing detail & feasibility</div>
+      </div>
+
+      <div>
+        <div class="node" style="background:#c0392b;">Uncertainties in Model Inputs</div>
+        <div class="sub-node">Emission trajectories</div>
+        <div class="sub-node">Natural variability</div>
+        <div class="sub-node">Parameter estimation</div>
+        <div class="sub-node">Data quality & coverage</div>
+      </div>
+    </div>
+
+    <div class="vertical-space"></div>
+
+    <div class="sub-nodes-container">
+      <div>
+        <div class="node" style="background:#16a085;">Nonlinearity and Chaos</div>
+        <div class="sub-node">Sensitivity to initial conditions</div>
+        <div class="sub-node">Complex feedbacks</div>
+        <div class="sub-node">Prediction challenges</div>
+      </div>
+
+      <div>
+        <div class="node" style="background:#2980b9;">Interdisciplinary Barriers</div>
+        <div class="sub-node">Integrating multiple sciences</div>
+        <div class="sub-node">Differences in methods</div>
+        <div class="sub-node">Data and terminology gaps</div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

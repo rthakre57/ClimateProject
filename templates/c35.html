@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mathematical Formulation — Hybrid Systems + ML Climate Model</title>
+
+<!-- MathJax -->
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+/* ------------ Base Typography ------------ */
+body{
+  font-family:"Segoe UI",sans-serif;
+  background:#f8fafc;
+  color:#334155;
+  margin:2rem;
+  line-height:1.5;
+}
+h2,h3{
+  color:#1f2937;
+  margin-top:1.2rem;
+  margin-bottom:.6rem;
+}
+h2{font-size:1.6rem}
+h3{font-size:1.25rem}
+
+/* ------------ Boxed Display Equations ------------ */
+mjx-container[display="block"]{
+  padding:.75rem 1.25rem;
+  border:1px solid #e2e8f0;
+  border-radius:.5rem;
+  background:#ffffff;
+  margin:1rem 0;
+  overflow-x:auto;
+}
+
+/* Small caps for section numbers */
+.section-num{
+  font-variant:small-caps;
+  font-weight:600;
+}
+</style>
+</head>
+<body>
+
+<h2>Mathematical Formulation of the ML–Enhanced Systems Model</h2>
+
+<h3><span class="section-num">1&nbsp;</span>State Variables</h3>
+
+$$
+\boxed{\;
+\mathbf{s}_{t}=
+\bigl[
+C_{t},\;
+I_{t},\;
+S_{t},\;
+T_{t}
+\bigr]^{\!\top}}
+\qquad
+\begin{aligned}
+C_{t}&:\;\text{CO}_2\ \text{concentration (ppm)}\\
+I_{t}&:\;\text{Cryosphere area }(10^{6}\,\text{km}^{2})\\
+S_{t}&:\;\text{Global mean sea–level (mm)}\\
+T_{t}&:\;\text{Surface air temperature anomaly (°C)}
+\end{aligned}
+$$
+
+<h3><span class="section-num">2&nbsp;</span>Deterministic Systems Skeleton</h3>
+
+$$
+T_{t}^{(\mathrm{sys})}=T_{0}+ \beta_{C}C_{t}+ \beta_{I}I_{t}+ \beta_{S}S_{t},
+\qquad
+T_{0}=14^{\circ}\mathrm{C},\;
+(\beta_{C},\beta_{I},\beta_{S})=(0.02,-0.5,0.03).
+\tag{1}
+$$
+
+<h3><span class="section-num">3&nbsp;</span>Feature Engineering for Learning</h3>
+
+$$
+\mathbf{x}_{t}=
+\bigl[
+C_{t},\;
+I_{t},\;
+S_{t},\;
+\Delta C_{t-1},\;
+F_{t},\;
+T_{t-1}I_{t-1}
+\bigr],
+\qquad
+F_{t}=5.35\ln\!\left(\frac{C_{t}}{280}\right).
+\tag{2}
+$$
+
+<h3><span class="section-num">4&nbsp;</span>Machine–Learning Hypothesis Class</h3>
+
+$$
+\widehat{f}:\mathbb{R}^{d}\!\longrightarrow\!\mathbb{R},
+\quad
+\widehat{f}\equiv
+\mathrm{RandomForestRegressor}(N_{\text{tree}},d_{\text{max}},\ldots).
+\tag{3}
+$$
+
+<h3><span class="section-num">5&nbsp;</span>Training Objective</h3>
+
+$$
+\theta^{*}=
+\arg\min_{\theta\in\Theta}
+\;
+\mathrm{CV}_{\text{ts}}
+\!\bigl(
+\mathrm{RMSE}\bigl(\widehat{f}_{\theta};\mathcal{D}_{\text{train}}\bigr)
+\bigr),
+\tag{4}
+$$
+
+where \(\mathrm{CV}_{\text{ts}}\) is 5‑fold time‑series cross‑validation.
+
+<h3><span class="section-num">6&nbsp;</span>Prediction Decomposition</h3>
+
+$$
+T_{t}^{(\mathrm{ML})}= \widehat{f}_{\theta^{*}}(\mathbf{x}_{t}),
+\qquad
+T_{t}^{(\mathrm{sys})}\ \text{from (1).}
+\tag{5}
+$$
+
+<h3><span class="section-num">7&nbsp;</span>Model Diagnostics</h3>
+
+$$
+\mathrm{RMSE}= \sqrt{\frac{1}{n}\sum_{t\in\mathcal{D}_{\text{test}}}
+\bigl(T_{t}-T_{t}^{(\mathrm{ML})}\bigr)^{2}},\qquad
+R^{2}=1-\frac{\sum\!(T_{t}-T_{t}^{(\mathrm{ML})})^{2}}
+{\sum\!(T_{t}-\bar{T})^{2}}.
+\tag{6}
+$$
+
+<h3><span class="section-num">8&nbsp;</span>Interpretability</h3>
+
+$$
+\operatorname{Imp}_{j}=
+\frac{1}{B}
+\sum_{b=1}^{B}
+\bigl(
+\mathrm{RMSE}_{\pi_{j}^{(b)}}-
+\mathrm{RMSE}_{\text{orig}}
+\bigr),
+\tag{7}
+$$
+
+with \(\pi_{j}^{(b)}\) a random permutation of feature \(j\).
+
+<p><strong>Equations (1)–(7)</strong> together define a hybrid <em>systems + ML</em>
+framework: the analytic skeleton (1) injects domain knowledge, while the
+non‑parametric learner (3) captures residual nonlinearities and
+interactions absent from the linear model.</p>
+
+</body>
+</html>

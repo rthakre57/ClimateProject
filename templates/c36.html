@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ML Surrogate for Climate‑Change Dynamics</title>
+
+<!-- MathJax for LaTeX rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+/* ---------- Base Typography ---------- */
+body{
+  font-family: "Segoe UI", sans-serif;
+  background:#f8fafc;
+  color:#344054;
+  margin:2rem;
+  line-height:1.55;
+}
+h2,h3{
+  color:#1f2937;
+  margin-top:1.4rem;
+  margin-bottom:.5rem;
+}
+h2{font-size:1.65rem}
+h3{font-size:1.25rem}
+
+/* ---------- Display‑Math Styling ---------- */
+mjx-container[display="block"]{
+  background:#ffffff;
+  border:1px solid #e2e8f0;
+  border-radius:.45rem;
+  padding:.8rem 1.2rem;
+  margin:1rem 0;
+  overflow-x:auto;
+}
+
+/* ---------- Lists ---------- */
+ul,ol{
+  margin:.4rem 0 .8rem 0;
+  padding-left:1.4rem;
+}
+ul li{margin:.35rem 0}
+</style>
+</head>
+<body>
+
+<h2>Machine‑Learning Model for Climate‑Change Dynamics</h2>
+
+<h3>Conceptual Aim</h3>
+<p>We seek a hybrid, data‑driven surrogate that emulates the coupled
+feedbacks linking <em>CO<span style="vertical-align:1px;">\(_2\)</span> concentration</em> \((C_{t})\),
+<em>cryosphere extent</em> \((I_{t})\),
+<em>global mean sea‑level</em> \((S_{t})\) and
+<em>surface‑air temperature anomaly</em> \((T_{t})\).
+The surrogate must (i) reproduce historical temperature variability
+with high fidelity, (ii) respond smoothly under counter‑factual
+<span style="white-space:nowrap;">“what‑if”</span> scenarios, and
+(iii) expose interpretable sensitivities for policy dialogue.</p>
+
+<h3>State Vector and Observations</h3>
+
+$$
+\mathbf{s}_{t}= \bigl[C_{t},\,I_{t},\,S_{t},\,T_{t}\bigr]^{\!\top},
+\qquad
+t=1958,\dots ,T.
+$$
+
+<p>Annual global means are drawn from Mauna Loa (CO\(_2\)),
+HadCRUT / GISTEMP (temperature), NSIDC (ice) and satellite altimetry
+(sea‑level). Missing points (&lt; 2 %) are linearly imputed; each
+series is standardised.</p>
+
+<h3>Feature Engineering</h3>
+
+$$
+\begin{aligned}
+F_{t} &= 5.35\ln\!\bigl(C_{t}/280\bigr) & &\text{(radiative forcing)},\\[3pt]
+M_{t} &= T_{t-1}I_{t-1}                 & &\text{(melting interaction)},\\[5pt]
+\mathbf{x}_{t}&= \bigl[C_{t},I_{t},S_{t},
+                     \Delta C_{t-1},F_{t},M_{t}\bigr].
+\end{aligned}
+$$
+
+<h3>Learning Hypothesis</h3>
+
+$$
+\widehat{f}:\mathbb{R}^{d}\!\longrightarrow\!\mathbb{R},
+\qquad
+\widehat{f}= \operatorname{RandomForestRegressor}
+\bigl(N_{\text{trees}},d_{\max}\bigr).
+$$
+
+<p>The ensemble captures non‑linearities and supplies global feature‑importance
+scores.</p>
+
+<h3>Training Protocol</h3>
+
+<ol>
+<li>Chronological split: <em>train</em> = 1958–2010, <em>test</em> = 2011–\(T\).</li>
+<li>Five‑fold time‑series CV with grid search over
+  \(N_{\text{trees}}\in\{300,600,900\}\) and
+  \(d_{\max}\in\{4,6,8,\infty\}\); objective
+  \(\min \mathrm{RMSE}_{\text{CV}}\).</li>
+<li>Best estimator \(\widehat{f}_{\!*}\) yields
+  \(R^{2}\approx0.91\), \(\mathrm{RMSE}\approx0.07^{\circ}\text{C}\) on
+  the held‑out set.</li>
+<li>Persist \(\widehat{f}_{\!*}\) with
+  <code>pickle</code> (<code>climate_model.pkl</code>).</li>
+</ol>
+
+<h3>Hybrid Prediction Output</h3>
+
+$$
+T^{(\mathrm{ML})}= \widehat{f}_{\!*}(\mathbf{x}),
+\qquad
+T^{(\mathrm{sys})}= 14 + 0.02\,C - 0.5\,I + 0.03\,S.
+$$
+
+<p>The linear companion \(T^{(\mathrm{sys})}\) aids explainability by exposing
+first‑order sensitivities.</p>
+
+<h3>API and Interface</h3>
+<p>The model is wrapped in a <code>/predict</code> endpoint
+(Flask / FastAPI) and served to a Streamlit dashboard. Users slide
+\(C\), \(I\), \(S\) and instantly see both
+\(T^{(\mathrm{ML})}\) and \(T^{(\mathrm{sys})}\),
+plus permutation‑importance and partial‑dependence plots.</p>
+
+<h3>Limitations &amp; Future Work</h3>
+<ul>
+<li>No explicit aerosol forcing, land‑use change or ENSO modes.</li>
+<li>Annual resolution; not suited to monthly extremes.</li>
+<li>Extrapolation beyond \(C&gt;600\) ppm incurs larger uncertainty.</li>
+</ul>
+
+<p>Planned extensions include LSTM‑based lag handling,
+CMIP6‑scenario assimilation and Bayesian ensembles for predictive
+uncertainty.</p>
+
+</body>
+</html>

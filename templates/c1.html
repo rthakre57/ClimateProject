@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title Page</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #000;
+    }
+.back-link {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 16px;
+      text-decoration: none;
+      background-color: #007BFF;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+    .title-page {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .main-title {
+      font-size: 2.8em;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+
+    .subtitle {
+      font-size: 1.6em;
+      margin-top: 60px;
+      font-weight: bold;
+    }
+
+    .submitted {
+      margin-top: 40px;
+      font-size: 1.2em;
+    }
+
+    .name, .advisor {
+      font-size: 1.4em;
+      margin-top: 10px;
+    }
+
+    .department {
+      margin-top: 60px;
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+
+    .date {
+      margin-top: 60px;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+  <div class="title-page">
+    <div class="main-title">
+      Mathematical Modeling of Climate Change Dynamics:<br>
+      <span style="font-size: 0.9em;">A Systems Approach</span>
+    </div>
+
+    <div class="subtitle">Research Project</div>
+
+    <div class="submitted">Submitted by:</div>
+    <div class="name">Your Full Name</div>
+
+    <div class="submitted" style="margin-top: 30px;">Under the Guidance of:</div>
+    <div class="advisor">Prof. Advisor's Name</div>
+
+    <div class="department">
+      Department of [Your Department]<br>
+      [Your Institution Name]<br>
+      [City, Country]
+    </div>
+
+    <div class="date">
+      <!-- Automatically updates to current date -->
+      <script>
+        const today = new Date();
+        document.write(today.toDateString());
+      </script>
+    </div>
+  </div>
+</body>
+</html>

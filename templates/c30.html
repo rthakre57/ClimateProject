@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Heat and Mass Transfer Equations</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async 
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f9f9fb;
+      padding: 2rem;
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+
+    h2, h3, h4 {
+      color: #1a73e8;
+      margin-top: 2rem;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    ul {
+      padding-left: 1.5rem;
+    }
+
+    code {
+      background: #f0f0f0;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+    }
+
+    .latex {
+      margin: 1rem 0;
+      text-align: center;
+    }
+
+    .example-title {
+      font-weight: bold;
+      margin-top: 1rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<section>
+  <h2>Heat and Mass Transfer Equations</h2>
+  <p>
+    Heat and mass transfer processes are fundamental to the dynamics of the Earth's climate system. These processes govern the exchange of energy and matter between the atmosphere, oceans, cryosphere, and biosphere.
+  </p>
+
+  <h3>1. Heat Transfer Equation</h3>
+  <p>
+    The general form of the <strong>heat conduction (diffusion) equation</strong> in one dimension is:
+  </p>
+  <div class="latex">
+    $$\frac{\partial T(x,t)}{\partial t} = \kappa \frac{\partial^2 T(x,t)}{\partial x^2}$$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li>\( T(x,t) \) is temperature at position \( x \) and time \( t \),</li>
+    <li>\( \kappa \) is the thermal diffusivity,</li>
+    <li>\( \frac{\partial T}{\partial t} \) represents the temporal change of temperature,</li>
+    <li>\( \frac{\partial^2 T}{\partial x^2} \) is the spatial curvature of the temperature field.</li>
+  </ul>
+
+  <div class="example-title">Example: Surface Temperature Penetration into Soil</div>
+  <p>Assume a sinusoidal surface temperature variation:</p>
+  <div class="latex">
+    $$T(0,t) = T_0 + A \cos(\omega t)$$
+  </div>
+  <p>Then the solution of the heat equation is:</p>
+  <div class="latex">
+    $$T(x,t) = T_0 + A e^{-\sqrt{\frac{\omega}{2\kappa}}x} \cos\left(\omega t - \sqrt{\frac{\omega}{2\kappa}}x \right)$$
+  </div>
+  <p>This shows how temperature oscillations decrease and lag with depth.</p>
+
+  <h3>2. Mass Transfer Equation</h3>
+  <p>
+    Mass transport in the atmosphere or ocean is often modeled using the <strong>advection-diffusion equation</strong>:
+  </p>
+  <div class="latex">
+    $$\frac{\partial C}{\partial t} + \vec{u} \cdot \nabla C = D \nabla^2 C + S$$
+  </div>
+  <p>Where:</p>
+  <ul>
+    <li>\( C \) is the concentration of a substance (e.g., water vapor, CO\(_2\)),</li>
+    <li>\( \vec{u} \) is the velocity field (e.g., wind or ocean current),</li>
+    <li>\( D \) is the diffusivity coefficient,</li>
+    <li>\( S \) represents sources or sinks (e.g., emissions or absorption).</li>
+  </ul>
+
+  <div class="example-title">Example: CO<sub>2</sub> Transport in the Atmosphere</div>
+  <p>Assuming steady-state, 1D transport with a source term \( S(x) \):</p>
+  <div class="latex">
+    $$u \frac{dC}{dx} = D \frac{d^2C}{dx^2} + S(x)$$
+  </div>
+  <p>
+    This equation can be solved numerically or analytically under specific boundary conditions to understand how carbon dioxide disperses.
+  </p>
+
+  <h3>3. Coupling with Climate Models</h3>
+  <p>Heat and mass transfer equations are numerically integrated as part of larger climate models. Their interaction determines:</p>
+  <ul>
+    <li>Temperature gradients in soil and ocean layers.</li>
+    <li>Humidity and precipitation patterns.</li>
+    <li>Greenhouse gas concentrations and transport.</li>
+  </ul>
+</section>
+
+</body>
+</html>
+

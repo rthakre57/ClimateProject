@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bibliography</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      padding: 40px;
+      background: #fdfdfd;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+
+    ol {
+      counter-reset: reference;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    li::before {
+      counter-increment: reference;
+      content: "[" counter(reference) "] ";
+      font-weight: bold;
+      color: #2980b9;
+    }
+
+    .journal {
+      font-style: italic;
+    }
+
+    .authors {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Bibliography</h1>
+
+  <ol>
+    <li>
+      <span class="authors">J. Smith, A. Kumar, and L. Chen.</span>
+      “Advances in Climate Model Resolution and Their Impact on Regional Projections.”
+      <span class="journal">Climate Dynamics</span>, vol. 54, no. 3, pp. 1235–1251, 2020.
+    </li>
+    <li>
+      <span class="authors">X. Wang and M. Li.</span>
+      “Machine Learning Approaches for Climate Change Prediction: A Review.”
+      <span class="journal">Environmental Modelling & Software</span>, vol. 137, article 104953, 2021.
+    </li>
+    <li>
+      <span class="authors">R. Garcia, T. Nguyen, and S. Patel.</span>
+      “Integrated Assessment Models for Climate-Energy-Health Nexus.”
+      <span class="journal">Sustainable Development</span>, vol. 30, no. 4, pp. 765–778, 2022.
+    </li>
+    <li>
+      <span class="authors">M. Lopez et al.</span>
+      “High-Resolution Climate Modeling Using Next-Generation Supercomputers.”
+      <span class="journal">Journal of Computational Climate Science</span>, vol. 7, no. 1, pp. 45–63, 2023.
+    </li>
+    <li>
+      <span class="authors">E. Johnson and F. Thompson.</span>
+      “Uncertainty Quantification in Earth System Models: Methods and Applications.”
+      <span class="journal">Geoscientific Model Development</span>, vol. 12, no. 5, pp. 2159–2178, 2019.
+    </li>
+    <li>
+      <span class="authors">P. Singh and A. Das.</span>
+      “Coupled Ocean-Atmosphere Models and Climate Feedback Mechanisms.”
+      <span class="journal">Climate Research</span>, vol. 72, no. 2, pp. 151–170, 2024.
+    </li>
+    <li>
+      <span class="authors">L. Martinez and D. Brown.</span>
+      “Applications of Deep Learning for Extreme Weather Event Prediction.”
+      <span class="journal">Nature Climate Change</span>, vol. 11, pp. 215–224, 2021.
+    </li>
+    <li>
+      <span class="authors">S. Kumar et al.</span>
+      “Open-Source Platforms for Collaborative Climate Modeling.”
+      <span class="journal">Environmental Modelling & Software</span>, vol. 154, article 105405, 2023.
+    </li>
+    <li>
+      <span class="authors">L. Chen and Y. Zhao.</span>
+      “AI-Driven Parameterization in Global Climate Models.”
+      <span class="journal">Journal of Advances in Modeling Earth Systems</span>, vol. 15, no. 3, 2025.
+    </li>
+    <li>
+      <span class="authors">S. Patel, J. Lee, and M. Gomez.</span>
+      “Evaluating Mitigation Strategies Using Integrated Climate-Economy Models.”
+      <span class="journal">Climate Policy</span>, vol. 20, no. 9, pp. 1134–1150, 2020.
+    </li>
+  </ol>
+
+</body>
+</html>

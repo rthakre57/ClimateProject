@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Differential Equations in Climate Modeling</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      line-height: 1.6;
+      padding: 2em;
+      background-color: #f8f9fa;
+      color: #212529;
+    }
+    h1, h2, h3 {
+      color: #0d6efd;
+    }
+    ul {
+      margin-left: 1.5em;
+    }
+    .equation {
+      margin: 1em 0;
+      text-align: center;
+    }
+  </style>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head>
+<body>
+
+  <h1>Differential Equations in Climate Modeling</h1>
+
+  <p>Differential equations are fundamental in describing climate processes that evolve over space and time. They form the backbone of physical models that simulate energy, mass, and momentum transport within the Earth system.</p>
+
+  <h2>1. General Form of Climate Equations</h2>
+
+  <p>Climate systems are typically governed by partial differential equations (PDEs) that represent conservation laws:</p>
+  <ul>
+    <li>Conservation of Mass (Continuity Equation)</li>
+    <li>Conservation of Momentum (Navier-Stokes Equations)</li>
+    <li>Conservation of Energy (Thermodynamic Equation)</li>
+  </ul>
+
+  <h3>Continuity Equation (Mass Conservation)</h3>
+  <div class="equation">
+    \[ \frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \vec{v}) = 0 \]
+  </div>
+
+  <h3>Navier-Stokes Equation (Momentum)</h3>
+  <div class="equation">
+    \[ \frac{D\vec{v}}{Dt} = -\frac{1}{\rho} \nabla p + \vec{g} + \nu \nabla^2 \vec{v} \]
+  </div>
+
+  <h3>Thermodynamic Energy Equation</h3>
+  <div class="equation">
+    \[ \frac{DT}{Dt} = \kappa \nabla^2 T + \frac{Q}{c_p} \]
+  </div>
+
+  <p>where:</p>
+  <ul>
+    <li><em>T</em> is temperature,</li>
+    <li><em>Q</em> is internal heating (e.g., solar, radiative forcing),</li>
+    <li><em>\(\kappa\)</em> is thermal diffusivity,</li>
+    <li><em>\(c_p\)</em> is specific heat at constant pressure.</li>
+  </ul>
+
+  <h2>2. Example: One-Dimensional Energy Balance Model (ODE)</h2>
+
+  <p>A basic example using an <strong>ordinary differential equation (ODE)</strong> is the zero-dimensional energy balance model (EBM), which estimates Earth's average temperature based on energy balance:</p>
+
+  <div class="equation">
+    \[ C \frac{dT(t)}{dt} = S(1 - \alpha) - \epsilon \sigma T(t)^4 \]
+  </div>
+
+  <ul>
+    <li><em>C</em> is the effective heat capacity of the Earth system,</li>
+    <li><em>T(t)</em> is the global mean temperature at time <em>t</em>,</li>
+    <li><em>S</em> is the solar constant,</li>
+    <li><em>\(\alpha\)</em> is Earth's albedo,</li>
+    <li><em>\(\epsilon\)</em> is emissivity,</li>
+    <li><em>\(\sigma\)</em> is the Stefan-Boltzmann constant.</li>
+  </ul>
+
+  <h2>3. Example: Diffusion Equation for Heat Transfer (PDE)</h2>
+
+  <p>The heat conduction in the Earth's surface can be modeled using the heat diffusion equation:</p>
+
+  <div class="equation">
+    \[ \frac{\partial T(x, t)}{\partial t} = \kappa \frac{\partial^2 T(x, t)}{\partial x^2} \]
+  </div>
+
+  <p>This equation governs temperature change \(T(x,t)\) as a function of depth \(x\) and time \(t\).</p>
+
+  <h2>4. Numerical Solution Techniques</h2>
+  <p>These equations are typically solved using:</p>
+  <ul>
+    <li>Finite Difference Methods (FDM)</li>
+    <li>Finite Element Methods (FEM)</li>
+    <li>Spectral Methods</li>
+    <li>Runge-Kutta methods for time integration</li>
+  </ul>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mathematical Formulation of Climate Models</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      line-height: 1.6;
+      margin: 40px;
+      background: #f5f9ff;
+      color: #333;
+    }
+
+    h1, h2, h3 {
+      color: #0d47a1;
+    }
+
+    h1 {
+      border-bottom: 3px solid #0d47a1;
+      padding-bottom: 10px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    article {
+      background: #ffffff;
+      border-left: 5px solid #2196f3;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .code {
+      background: #f0f0f0;
+      font-family: monospace;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 6px;
+    }
+
+    .highlight {
+      color: #1a237e;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Chapter: Mathematical Formulation of Climate Models</h1>
+
+  <section>
+    <h2>Governing Equations</h2>
+
+    <article>
+      <h3>Differential Equations in Climate Modeling</h3>
+      <p>Climate models are grounded in <span class="highlight">differential equations</span> that describe how climate variables evolve over time and space. These include equations derived from the conservation laws of mass, momentum, and energy. <span class="highlight">Partial differential equations (PDEs)</span> are widely used to simulate atmospheric and oceanic flows, incorporating processes like advection, diffusion, and phase transitions.</p>
+    </article>
+
+    <article>
+      <h3>Heat and Mass Transfer Equations</h3>
+      <p>Heat transfer in the climate system occurs through conduction, convection, and radiation. The <span class="highlight">heat equation</span> is used to model temperature distribution:</p>
+      <div class="code">
+        <p>
+ 	 \[
+	  \frac{\partial T}{\partial t} = \alpha \nabla^2 T
+  	\]
+	</p>
+
+      </div>
+      <p>where <span class="highlight">T</span> is temperature and <span class="highlight">α</span> is thermal diffusivity. Similarly, mass transfer equations model the transport of substances like water vapor and CO<sub>2</sub>, crucial for understanding atmospheric composition and energy balance.</p>
+    </article>
+  </section>
+
+  <section>
+    <h2>Carbon Cycle Modeling</h2>
+    <article>
+      <p>The carbon cycle involves dynamic interactions between the atmosphere, biosphere, oceans, and lithosphere. Mathematical models include <span class="highlight">box models</span> and systems of differential equations that describe carbon fluxes and storage. These help assess the impact of fossil fuel emissions, deforestation, and ocean uptake on atmospheric CO<sub>2</sub> levels.</p>
+    </article>
+  </section>
+
+  <section>
+    <h2>Ocean-Atmosphere Interaction Models</h2>
+    <article>
+      <p>Interactions between the ocean and atmosphere drive climate variability. Models simulate the exchange of heat, gases, and momentum across the air-sea interface. Key phenomena modeled include:</p>
+      <ul>
+        <li>El Niño-Southern Oscillation (ENSO)</li>
+        <li>Thermohaline circulation</li>
+      </ul>
+      <p>These are represented through coupled systems of PDEs that are solved numerically to capture complex feedbacks and time evolution.</p>
+    </article>
+  </section>
+
+  <section>
+    <h2>Coupled Subsystems and Integrated Models</h2>
+    <article>
+      <p>Integrated models combine the atmosphere, oceans, cryosphere, and terrestrial systems into a single framework. These <span class="highlight">coupled climate models</span> solve multiple equations simultaneously to account for feedback loops and interdependencies. This integrated approach is essential for robust long-term climate forecasting and impact assessments.</p>
+    </article>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Energy Balance Models (EBMs)</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      line-height: 1.7;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      color: #333;
+      background: #fdfdfd;
+    }
+
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 1em;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    .equation {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 1.2em;
+    }
+
+    .note {
+      font-style: italic;
+      color: #555;
+    }
+
+    code {
+      background: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+  </style>
+.container {
+      position: relative;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .right-image {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      width: 200px; /* Adjust size as needed */
+      height: auto;
+    }
+
+    h1 {
+      margin-top: 50px;
+    }
+</head>
+<body>
+
+  <h1>Energy Balance Models (EBMs)</h1>
+
+  <p>
+    Energy Balance Models (EBMs) describe the Earth's climate system by balancing incoming solar radiation with outgoing terrestrial radiation. These models are often used to estimate the Earth's average temperature.
+  </p>
+  <h2>Basic One-Box EBM Equation</h2>
+
+  <p>The general form of the one-dimensional EBM is:</p>
+
+  <div class="equation">
+    \( C \frac{dT(t)}{dt} = S(1 - \alpha) - \epsilon \sigma T(t)^4 \)
+  </div>
+
+  <p>where:</p>
+  <ul>
+    <li><strong>C</strong>: effective heat capacity of the Earth's surface (J/m²/K)</li>
+    <li><strong>T(t)</strong>: global mean surface temperature at time <em>t</em> (K)</li>
+    <li><strong>S</strong>: incoming solar radiation or insolation (W/m²)</li>
+    <li><strong>α</strong>: planetary albedo (dimensionless)</li>
+    <li><strong>ε</strong>: emissivity of Earth (dimensionless)</li>
+    <li><strong>σ</strong>: Stefan-Boltzmann constant (\(5.67 \times 10^{-8}\) W/m²/K⁴)</li>
+  </ul>
+
+  <h2>Steady-State Solution</h2>
+
+  <p>
+    Assuming steady-state conditions (\( \frac{dT}{dt} = 0 \)), the equilibrium temperature \( T_e \) can be found by setting the energy balance:
+  </p>
+
+  <div class="equation">
+    \( S(1 - \alpha) = \epsilon \sigma T_e^4 \)
+  </div>
+
+  <p>Solving for \( T_e \):</p>
+
+  <div class="equation">
+    \( T_e = \left( \frac{S(1 - \alpha)}{\epsilon \sigma} \right)^{1/4} \)
+  </div>
+
+  <h2>Example Calculation</h2>
+
+  <p>Assume the following values:</p>
+  <ul>
+    <li><strong>S</strong> = 1361 W/m² (solar constant)</li>
+    <li><strong>α</strong> = 0.3</li>
+    <li><strong>ε</strong> = 1 (blackbody assumption)</li>
+  </ul>
+
+  <p>Then,</p>
+
+  <div class="equation">
+    \( T_e = \left( \frac{1361 \times (1 - 0.3)}{4 \times 5.67 \times 10^{-8}} \right)^{1/4} \)
+  </div>
+
+  <p class="note">
+    Note: The factor of 4 accounts for the spherical geometry (Earth intercepts area \( \pi R^2 \) but emits over \( 4\pi R^2 \)).
+  </p>
+
+  <div class="equation">
+    \( T_e \approx 255 \, \text{K} \)
+  </div>
+
+  <p>
+    This is close to the Earth's observed effective radiative temperature, highlighting the utility of EBMs as a first-order climate model.
+  </p>
+<div class="container">
+    <h1>Graph of EBMs</h1>
+    <p>This estimate the Earth's average temperature.
+</p>
+
+    <!-- Image on the right center -->
+    <img src="images\EMB.png" alt="Sample Image" style="width: 800px; height: auto; class="right-image">
+  </div>
+
+</body>
+</html>

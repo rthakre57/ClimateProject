@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coupled Subsystems and Integrated Models</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        body {
+            font-family: "Georgia", serif;
+            margin: 40px;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .math-block {
+            background-color: #f0f4f8;
+            padding: 1em;
+            border-radius: 8px;
+            margin: 1em 0;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="section">
+    <h2>Coupled Subsystems and Integrated Models</h2>
+    <p>
+        Climate systems are inherently complex and consist of various interconnected subsystems including the atmosphere, oceans, land surface, cryosphere, and biosphere. 
+        Coupled climate models aim to simulate interactions among these components using a unified framework, often resulting in Integrated Assessment Models (IAMs).
+    </p>
+
+    <h3>1. Mathematical Framework</h3>
+    <p>
+        Each subsystem is governed by a set of differential equations, and coupling is achieved through interface variables that exchange fluxes of energy, mass, or momentum. Let us define:
+    </p>
+    <ul>
+        <li>\(\mathbf{A}(t)\): State vector for atmosphere</li>
+        <li>\(\mathbf{O}(t)\): State vector for ocean</li>
+        <li>\(\mathbf{L}(t)\): Land surface variables</li>
+        <li>\(\mathbf{B}(t)\): Biosphere (e.g., carbon cycle)</li>
+        <li>\(\mathbf{F}_{ij}\): Flux from subsystem \(i\) to \(j\)</li>
+    </ul>
+
+    <div class="math-block">
+        \[
+        \frac{d\mathbf{A}}{dt} = \mathcal{F}_A(\mathbf{A}, \mathbf{O}, \mathbf{L}, \mathbf{B}, \mathbf{F}_{OA}, \mathbf{F}_{LA})
+        \]
+        \[
+        \frac{d\mathbf{O}}{dt} = \mathcal{F}_O(\mathbf{O}, \mathbf{A}, \mathbf{F}_{AO})
+        \]
+        \[
+        \frac{d\mathbf{L}}{dt} = \mathcal{F}_L(\mathbf{L}, \mathbf{A}, \mathbf{F}_{AL})
+        \]
+        \[
+        \frac{d\mathbf{B}}{dt} = \mathcal{F}_B(\mathbf{B}, \mathbf{A}, \mathbf{L}, \mathbf{F}_{LB}, \mathbf{F}_{AB})
+        \]
+    </div>
+
+    <h3>2. Example: Carbon-Climate Feedback System</h3>
+    <p>
+        Consider a simplified coupled model of the climate and carbon cycle:
+    </p>
+
+    <div class="math-block">
+        \[
+        \frac{dT}{dt} = \alpha F_{CO_2} - \beta T
+        \]
+        \[
+        \frac{dC}{dt} = E(t) - \gamma T - \delta C
+        \]
+    </div>
+
+    <ul>
+        <li>\(T(t)\): global mean temperature</li>
+        <li>\(C(t)\): atmospheric CO\(_2\) concentration</li>
+        <li>\(F_{CO_2} = \lambda \log\left(\frac{C}{C_0}\right)\): radiative forcing</li>
+        <li>\(E(t)\): anthropogenic CO\(_2\) emissions</li>
+        <li>\(\alpha, \beta, \gamma, \delta, \lambda\): empirical parameters</li>
+    </ul>
+
+    <h3>3. Solving the Coupled System</h3>
+    <p>
+        This coupled nonlinear system can be solved numerically using time-stepping methods (e.g., Euler, Runge–Kutta). The feedback between \(T\) and \(C\) illustrates an essential feature of integrated climate models.
+    </p>
+
+    <h3>4. Applications</h3>
+    <ul>
+        <li>Earth System Models (ESMs)</li>
+        <li>Integrated Assessment Models (IAMs) for climate policy</li>
+        <li>Long-term projections of climate and socio-economic dynamics</li>
+        <li>Evaluating tipping points and climate risk pathways</li>
+    </ul>
+</div>
+
+</body>
+</html>
+

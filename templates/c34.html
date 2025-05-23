@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Machine‑Learning Model Overview</title>
+
+<!-- MathJax for LaTeX rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+body{
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.4;
+  margin: 2rem;
+  background: #f8fafc;
+  color: #333;
+}
+h2{
+  margin-top: 0;
+  color: #1f2937;
+}
+table{
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+th, td{
+  border: 1px solid #e2e8f0;
+  padding: 0.75rem;
+  vertical-align: top;
+}
+th{
+  background:#e0f2fe;
+  text-align: left;
+}
+tr:nth-child(even) td{
+  background:#f9fafb;
+}
+ul{
+  margin: 0;
+  padding-left: 1.2rem;
+}
+</style>
+</head>
+<body>
+
+<h2>Machine‑Learning Model Overview</h2>
+
+<h3>Project Title</h3>
+<p><strong>Mathematical Modeling of Climate‑Change Dynamics: A Systems Approach</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th style="width: 20%">Aspect</th>
+  <th>Brief Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Purpose</strong></td>
+  <td>
+    Quantitatively capture the coupled feedbacks among anthropogenic CO\(_2\) emissions,
+    global‑mean surface temperature, cryosphere (ice‑cover) loss, and sea‑level
+    rise, then provide fast, data‑driven temperature predictions for
+    <em>what‑if</em> scenario exploration.
+  </td>
+</tr>
+
+<tr>
+  <td><strong>Systems‑Theory Core</strong></td>
+  <td>
+    1. Identify state variables (CO\(_2\), Ice Cover, Sea Level, Temperature).<br>
+    2. Map causal links (e.g.\ ↑CO\(_2\) ⇒ ↑Radiative forcing ⇒ ↑Temperature ⇒ ↓Ice Cover ⇒ ↑Sea‑level).<br>
+    3. Translate links into a synthetic feature set for learning.
+  </td>
+</tr>
+
+<tr>
+  <td><strong>Data</strong></td>
+  <td>
+    Historical records 1958–present: Mauna Loa CO\(_2\), HadCRUT / NASA‑GISTEMP
+    temperatures, NSIDC ice‑extent, and satellite‑based global mean sea‑level.
+    Missing values are linearly imputed; annual means become the modelling timestep.
+  </td>
+</tr>
+
+<tr>
+  <td><strong>Features (\\(\\mathbf X\\))</strong></td>
+  <td>
+    CO\(_2\) (ppm), Ice Cover (10<sup>6</sup> km<sup>2</sup>), Sea‑Level (mm)
+    at time \(t\) (plus optional lags \(\Delta\text{CO}_{2,t-1},\dots\)).
+  </td>
+</tr>
+
+<tr>
+  <td><strong>Target (\\(\\mathbf y\\))</strong></td>
+  <td>Global‑mean surface‑air temperature anomaly (°C) at time \(t\).</td>
+</tr>
+
+<tr>
+  <td><strong>Model Choice</strong></td>
+  <td><strong>Random Forest Regressor</strong> — chosen for non‑linear response capture,
+  robustness to multicollinearity, and interpretability via feature importance.</td>
+</tr>
+
+<tr>
+  <td><strong>Training Workflow</strong></td>
+  <td>
+    1. Chronological 80 / 20 train–test split.<br>
+    2. Hyper‑parameter grid search (<code>n_estimators</code>, <code>max_depth</code>).<br>
+    3. Five‑fold time‑series cross‑validation.<br>
+    4. Metrics: MAE, RMSE, \(R^{2}\).<br>
+    5. Save fitted estimator with <code>pickle</code>.
+  </td>
+</tr>
+
+<tr>
+  <td><strong>Typical Performance</strong></td>
+  <td>\(R^{2}\!\approx\!0.91\), RMSE \(\approx\!0.07^{\circ}\text{C}\) on the held‑out 20 % — explains ≈90 % of inter‑annual temperature variance.</td>
+</tr>
+
+<tr>
+  <td><strong>System‑Dynamics Companion</strong></td>
+  <td>
+    Analytic function $$T = 14 + 0.02\,C - 0.5\,I + 0.03\,S$$
+    provides a transparent baseline; the ML model refines it by learning
+    non‑linearities and higher‑order interactions.
+  </td>
+</tr>
+
+<tr>
+  <td><strong>Deployment</strong></td>
+  <td>
+    Served via a Flask / FastAPI endpoint <code>/predict</code>; consumed by a Streamlit or
+    HTML/JS front‑end. Users adjust CO\(_2\), ice, and sea‑level sliders to receive
+    (1) ML‑predicted temperature and (2) analytic estimate for comparison.
+  </td>
+</tr>
+
+<tr>
+  <td><strong>Interpretability Aids</strong></td>
+  <td>
+    <ul>
+      <li>Permutation feature importance → CO\(_2\) dominates, sea‑level second, ice‑cover third.</li>
+      <li>Partial‑dependence plots show marginal sensitivities and thresholds (e.g., accelerated warming beyond ≈460 ppm).</li>
+    </ul>
+  </td>
+</tr>
+
+<tr>
+  <td><strong>Limitations</strong></td>
+  <td>Ignores aerosol forcing, land‑use change, and internal modes (ENSO); annual scale only; extrapolation above 600 ppm CO\(_2\) carries higher uncertainty.</td>
+</tr>
+
+<tr>
+  <td><strong>Next Steps</strong></td>
+  <td>Add time‑lagged feedbacks with LSTM/Prophet, assimilate CMIP6 scenarios, attach probabilistic uncertainty bands, and couple with socio‑economic emission pathways for policy assessment.</td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>

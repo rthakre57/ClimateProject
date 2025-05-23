@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Radiative-Convective Models (RCMs)</title>
+    <style>
+        body {
+            font-family: "Georgia", serif;
+            line-height: 1.6;
+            margin: 40px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h2, h3 {
+            color: #2c3e50;
+        }
+        ul {
+            margin-top: 0;
+        }
+        code {
+            background: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .equation {
+            background-color: #fff;
+            padding: 10px 15px;
+            border-left: 4px solid #3498db;
+            margin: 15px 0;
+            font-family: 'Latin Modern Math', 'Cambria Math', serif;
+        }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+
+<h2>Radiative-Convective Models (RCMs)</h2>
+
+<p>Radiative-Convective Models (RCMs) combine radiative transfer equations with convective adjustment to model the vertical temperature profile of the atmosphere. These models simulate the balance between:</p>
+
+<ul>
+    <li><strong>Radiative transfer:</strong> absorption and emission of radiation,</li>
+    <li><strong>Convection:</strong> vertical heat transport due to instability.</li>
+</ul>
+
+<h3>Radiative Transfer Equation</h3>
+
+<p>In a plane-parallel atmosphere, the upward \((I_\uparrow)\) and downward \((I_\downarrow)\) longwave radiative fluxes are governed by:</p>
+
+<div class="equation">\( \frac{dI_\uparrow(z)}{dz} = -\kappa \rho(z) \left[ I_\uparrow(z) - \sigma T(z)^4 \right] \)</div>
+
+<div class="equation">\( \frac{dI_\downarrow(z)}{dz} = \kappa \rho(z) \left[ I_\downarrow(z) - \sigma T(z)^4 \right] \)</div>
+
+<p>where:</p>
+<ul>
+    <li>\( z \): altitude,</li>
+    <li>\( \kappa \): absorption coefficient,</li>
+    <li>\( \rho(z) \): atmospheric density,</li>
+    <li>\( T(z) \): temperature at height \( z \),</li>
+    <li>\( \sigma \): Stefan-Boltzmann constant.</li>
+</ul>
+
+<h3>Convective Adjustment</h3>
+
+<p>If the lapse rate exceeds the adiabatic lapse rate \( \Gamma_a \), convection occurs and temperature is adjusted to restore stability:</p>
+
+<div class="equation">
+    \( \Gamma = -\frac{dT}{dz} > \Gamma_a \Rightarrow \text{Adjust } T(z) \text{ until } \Gamma \leq \Gamma_a \)
+</div>
+
+<p>For dry air, the adiabatic lapse rate is:</p>
+
+<div class="equation">\( \Gamma_a = \frac{g}{c_p} \)</div>
+
+<p>where:</p>
+<ul>
+    <li>\( g \): gravitational acceleration (9.81 m/s<sup>2</sup>),</li>
+    <li>\( c_p \): specific heat of air at constant pressure.</li>
+</ul>
+
+<h3>Example: Two-Layer Radiative-Convective Model</h3>
+
+<p>Consider a two-layer atmosphere with:</p>
+<ul>
+    <li>Surface temperature: \( T_s \),</li>
+    <li>Atmospheric layer temperature: \( T_a \),</li>
+    <li>Emissivity \( \epsilon = 1 \),</li>
+    <li>No reflection (blackbody approximation).</li>
+</ul>
+
+<p>The energy balance equations:</p>
+
+<div class="equation">\( \sigma T_s^4 = \frac{1}{2} \sigma T_a^4 + S(1 - \alpha) \)</div>
+<div class="equation">\( \sigma T_a^4 = \sigma T_s^4 \)</div>
+
+<p>Solving these equations yields:</p>
+
+<div class="equation">
+    \( T_a = T_s, \quad T_s = \left( \frac{S(1 - \alpha)}{\sigma} \right)^{1/4} \)
+</div>
+
+<p>which is similar to the result from EBMs, but now includes vertical structure and convection.</p>
+
+</body>
+</html>
+

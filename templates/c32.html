@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ocean-Atmosphere Interaction Models</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      margin: 40px;
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+
+    section {
+      background: #ffffff;
+      border-left: 6px solid #3498db;
+      padding: 20px 30px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      border-radius: 8px;
+    }
+
+    ul, ol {
+      margin-left: 20px;
+    }
+
+    .equation {
+      margin: 20px 0;
+      text-align: center;
+    }
+  </style>
+  <!-- MathJax for LaTeX rendering -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async 
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head>
+<body>
+
+  <section>
+    <h2>Ocean-Atmosphere Interaction Models</h2>
+    <p>
+      The ocean and atmosphere form a tightly coupled system that exchanges heat, moisture, momentum, and trace gases. 
+      Mathematical models of ocean-atmosphere interactions are essential for understanding large-scale climate phenomena 
+      such as El Niño–Southern Oscillation (ENSO), monsoons, and long-term climate feedbacks.
+    </p>
+  </section>
+
+  <section>
+    <h3>1. Governing Equations</h3>
+    <p>
+      The ocean-atmosphere system is modeled using the <strong>Navier–Stokes equations</strong> for fluid flow, 
+      along with thermodynamic and continuity equations.
+    </p>
+    <p>Let us define the following key variables:</p>
+    <ul>
+      <li>\( \vec{v}_a, \vec{v}_o \): velocity fields of atmosphere and ocean,</li>
+      <li>\( T_a, T_o \): temperature of atmosphere and ocean,</li>
+      <li>\( S \): salinity of the ocean,</li>
+      <li>\( p \): pressure,</li>
+      <li>\( Q \): net heat flux across the ocean-atmosphere interface.</li>
+    </ul>
+
+    <p><strong>Atmosphere (simplified thermodynamic energy balance):</strong></p>
+    <div class="equation">
+      \[
+      \rho_a c_{p,a} \frac{\partial T_a}{\partial t} + \vec{v}_a \cdot \nabla T_a = R - Q + H + L
+      \]
+    </div>
+
+    <p><strong>Ocean (mixed-layer temperature evolution):</strong></p>
+    <div class="equation">
+      \[
+      \rho_o c_{p,o} \frac{\partial T_o}{\partial t} + \vec{v}_o \cdot \nabla T_o = Q - D_o(T_o)
+      \]
+    </div>
+
+    <p>Where:</p>
+    <ul>
+      <li>\( R \): radiative heating of the atmosphere,</li>
+      <li>\( H \): sensible heat exchange,</li>
+      <li>\( L \): latent heat flux,</li>
+      <li>\( D_o(T_o) \): diffusion or mixing within ocean layers.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>2. Heat Exchange at the Interface</h3>
+    <p>The net surface heat flux \( Q \) between ocean and atmosphere is typically parameterized as:</p>
+    <div class="equation">
+      \[
+      Q = \lambda (T_a - T_o)
+      \]
+    </div>
+    <p>where \( \lambda \) is a heat exchange coefficient.</p>
+  </section>
+
+  <section>
+    <h3>3. Example: Simple Coupled Box Model</h3>
+    <p>Consider a simplified 1D coupled model of the upper ocean and atmosphere:</p>
+    <div class="equation">
+      \[
+      \frac{dT_a}{dt} = \frac{1}{\tau_a} (T_o - T_a) + F_a
+      \]
+      \[
+      \frac{dT_o}{dt} = \frac{1}{\tau_o} (T_a - T_o) + F_o
+      \]
+    </div>
+
+    <p>Where:</p>
+    <ul>
+      <li>\( T_a(t), T_o(t) \): atmospheric and ocean temperatures,</li>
+      <li>\( \tau_a, \tau_o \): characteristic time scales,</li>
+      <li>\( F_a, F_o \): external forcings (e.g., solar radiation, greenhouse gases).</li>
+    </ul>
+
+    <p>
+      This system of ODEs can be solved to simulate temperature interactions over time. The feedback loop between 
+      \( T_a \) and \( T_o \) plays a critical role in determining the overall system's response to external perturbations.
+    </p>
+  </section>
+
+  <section>
+    <h3>4. Applications</h3>
+    <p>These models are crucial for:</p>
+    <ul>
+      <li>Simulating ENSO dynamics and its global teleconnections,</li>
+      <li>Understanding ocean heat uptake and storage,</li>
+      <li>Coupling with General Circulation Models (GCMs) for improved climate forecasts.</li>
+    </ul>
+  </section>
+
+</body>
+</html>

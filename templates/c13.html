@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Climate Models Flowchart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      padding: 20px;
+    }
+    .flowchart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+    .node {
+      background-color: #ffffff;
+      border: 2px solid #4a90e2;
+      border-radius: 10px;
+      padding: 20px 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 300px;
+      position: relative;
+    }
+    .line {
+      width: 2px;
+      height: 30px;
+      background-color: #4a90e2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mathematical Formulation of Climate Models</h1>
+  <div class="flowchart">
+
+    <div class="node">Governing Equations</div>
+    <div class="line"></div>
+
+    <div class="node">Differential Equations<br><small>(Advection, Diffusion, Phase Change)</small></div>
+    <div class="line"></div>
+
+    <div class="node">Heat & Mass Transfer<br><small>(Conduction, Convection, Radiation)</small></div>
+    <div class="line"></div>
+
+    <div class="node">Carbon Cycle Modeling<br><small>(Box Models, Flux Equations)</small></div>
+    <div class="line"></div>
+
+    <div class="node">Ocean-Atmosphere Interactions<br><small>(ENSO, Thermohaline Circulation)</small></div>
+    <div class="line"></div>
+
+    <div class="node">Coupled Subsystems<br><small>(Atmosphere, Ocean, Cryosphere, Land)</small></div>
+
+  </div>
+</body>
+</html>

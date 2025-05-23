@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flowchart - Fundamentals of Climate Science</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f9fc;
+      padding: 40px;
+      color: #2c3e50;
+    }
+
+    .flowchart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .node {
+      background-color: #d6eaf8;
+      border: 2px solid #2874a6;
+      padding: 15px 25px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin: 10px;
+      position: relative;
+    }
+
+    .connector::after {
+      content: "";
+      width: 3px;
+      height: 30px;
+      background-color: #2874a6;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .children {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .arrow-down {
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 15px solid #2874a6;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="flowchart">
+    <div class="node">Fundamentals of Climate Science</div>
+    <div class="arrow-down"></div>
+
+    <div class="children">
+      <div>
+        <div class="node connector">Climate vs. Weather</div>
+        <div class="arrow-down"></div>
+      </div>
+      <div>
+        <div class="node connector">Key Components of Climate System</div>
+        <div class="arrow-down"></div>
+      </div>
+      <div>
+        <div class="node connector">Drivers of Climate Change</div>
+        <div class="arrow-down"></div>
+      </div>
+      <div>
+        <div class="node connector">Anthropogenic Influences</div>
+        <div class="arrow-down"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

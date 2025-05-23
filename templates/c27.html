@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>General Circulation Models (GCMs)</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            margin: 40px;
+            max-width: 900px;
+            background-color: #f9f9f9;
+            color: #222;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        ul {
+            margin-left: 20px;
+        }
+        .equation {
+            background-color: #eef;
+            padding: 10px;
+            border-left: 5px solid #5c6bc0;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>General Circulation Models (GCMs)</h1>
+    <p>
+        General Circulation Models (GCMs) are the most comprehensive climate models used to simulate the Earth's atmosphere, ocean, and land surface interactions over time.
+        They solve a set of coupled, nonlinear, partial differential equations (PDEs) based on the laws of physics, fluid dynamics, and thermodynamics.
+    </p>
+
+    <h2>Governing Equations</h2>
+    <p>The core equations in a GCM represent the conservation of mass, momentum, and energy:</p>
+
+    <h3>1. Momentum Equation (Navier-Stokes in spherical coordinates)</h3>
+    <div class="equation">
+        \[
+        \frac{D\vec{v}}{Dt} = -\frac{1}{\rho} \nabla p + \vec{g} + \vec{F} - 2\vec{\Omega} \times \vec{v}
+        \]
+    </div>
+    <ul>
+        <li>\(\vec{v}\): wind velocity vector</li>
+        <li>\(p\): pressure</li>
+        <li>\(\rho\): air density</li>
+        <li>\(\vec{g}\): gravitational acceleration</li>
+        <li>\(\vec{F}\): frictional forces</li>
+        <li>\(\vec{\Omega}\): Earth's angular velocity vector (Coriolis effect)</li>
+    </ul>
+
+    <h3>2. Thermodynamic Energy Equation</h3>
+    <div class="equation">
+        \[
+        \frac{DT}{Dt} = \frac{Q}{c_p} + \text{Radiative} + \text{Convective} + \text{Latent heat terms}
+        \]
+    </div>
+    <ul>
+        <li>\(T\): temperature</li>
+        <li>\(Q\): heating rate</li>
+        <li>\(c_p\): specific heat at constant pressure</li>
+    </ul>
+
+    <h3>3. Continuity Equation (Mass Conservation)</h3>
+    <div class="equation">
+        \[
+        \frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \vec{v}) = 0
+        \]
+    </div>
+
+    <h3>4. Equation of State (Ideal Gas Law)</h3>
+    <div class="equation">
+        \[
+        p = \rho R T
+        \]
+    </div>
+
+    <h2>Example: Idealized Baroclinic Atmosphere</h2>
+    <p>
+        Consider a two-layer, hydrostatic atmosphere with zonal flow.
+        The quasi-geostrophic vorticity equation in pressure coordinates is:
+    </p>
+    <div class="equation">
+        \[
+        \frac{\partial \nabla^2 \psi}{\partial t} + J(\psi, \nabla^2 \psi) + f_0 \frac{\partial \omega}{\partial p} = 0
+        \]
+    </div>
+    <ul>
+        <li>\(\psi\): streamfunction</li>
+        <li>\(J\): Jacobian determinant</li>
+        <li>\(\omega\): vertical velocity</li>
+        <li>\(f_0\): Coriolis parameter</li>
+    </ul>
+    <p>This simplified GCM component helps model the growth of mid-latitude cyclones and baroclinic instability.</p>
+
+    <h2>Numerical Implementation</h2>
+    <p>
+        GCMs discretize these equations using finite difference, finite volume, or spectral methods on a 3D global grid, 
+        with typical resolutions ranging from 1° to 2° latitude/longitude.
+    </p>
+
+    <h2>Model Components</h2>
+    <ul>
+        <li>Atmospheric Dynamics</li>
+        <li>Ocean Circulation</li>
+        <li>Sea Ice and Land Surface Models</li>
+        <li>Couplers for component interaction</li>
+    </ul>
+
+</body>
+</html>

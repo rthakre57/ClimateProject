@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Differential Equations in Climate Modeling - Flowchart</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f9ff;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    .flowchart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .box {
+      background-color: #ffffff;
+      border: 2px solid #4a90e2;
+      border-radius: 12px;
+      padding: 1rem 2rem;
+      margin: 1rem 0;
+      width: 80%;
+      max-width: 600px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      position: relative;
+    }
+
+    .box::after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 40px;
+      background-color: #4a90e2;
+    }
+
+    .box:last-child::after {
+      display: none;
+    }
+
+    .title {
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+
+    .math {
+      font-size: 1.1rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 style="text-align:center; color:#2c3e50;">Flowchart: Differential Equations in Climate Modeling</h2>
+
+  <div class="flowchart">
+
+    <div class="box">
+      <div class="title">Physical Basis</div>
+      <div>Conservation Laws: Mass, Momentum, Energy</div>
+    </div>
+
+    <div class="box">
+      <div class="title">Continuity Equation</div>
+      <div class="math">$$\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \vec{v}) = 0$$</div>
+    </div>
+
+    <div class="box">
+      <div class="title">Momentum Equation (Navier-Stokes)</div>
+      <div class="math">$$\frac{D\vec{v}}{Dt} = -\frac{1}{\rho} \nabla p + \vec{g} + \nu \nabla^2 \vec{v}$$</div>
+    </div>
+
+    <div class="box">
+      <div class="title">Thermodynamic Energy Equation</div>
+      <div class="math">$$\frac{DT}{Dt} = \kappa \nabla^2 T + \frac{Q}{c_p}$$</div>
+    </div>
+
+    <div class="box">
+      <div class="title">Example: Energy Balance Model (ODE)</div>
+      <div class="math">$$C \frac{dT}{dt} = S(1 - \alpha) - \epsilon \sigma T^4$$</div>
+    </div>
+
+    <div class="box">
+      <div class="title">Example: Heat Diffusion (PDE)</div>
+      <div class="math">$$\frac{\partial T}{\partial t} = \kappa \frac{\partial^2 T}{\partial x^2}$$</div>
+    </div>
+
+    <div class="box">
+      <div class="title">Numerical Methods</div>
+      <div>FDM, FEM, Spectral Methods, Runge-Kutta Integration</div>
+    </div>
+
+  </div>
+
+</body>
+</html>
+

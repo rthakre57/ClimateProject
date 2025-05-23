@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Climate Modeling Flowchart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+    .flowchart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+    .node {
+      background: #fff;
+      border: 2px solid #4CAF50;
+      border-radius: 10px;
+      padding: 20px 30px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 2px 4px 10px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    .node::after {
+      content: "";
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 40px;
+      background: #4CAF50;
+    }
+    .node:last-child::after {
+      display: none;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Climate Change Modeling: A Systems Approach (Flowchart)</h2>
+  <div class="flowchart">
+
+    <div class="node">1. Introduction</div>
+    <div class="node">2. Fundamentals of Climate Science</div>
+    <div class="node">3. Overview of Climate Models (EBM, RCM, GCM)</div>
+    <div class="node">4. Systems Theory & Climate Dynamics</div>
+    <div class="node">5. Mathematical Formulation (Equations, Carbon Cycle, Ocean-Atmosphere)</div>
+    <div class="node">6. Model Calibration and Validation</div>
+    <div class="node">7. Simulation & Numerical Analysis</div>
+    <div class="node">8. Applications & Policy Implications</div>
+    <div class="node">9. Challenges & Limitations</div>
+    <div class="node">10. Future Directions</div>
+    <div class="node">11. Conclusion & Recommendations</div>
+
+  </div>
+
+</body>
+</html>

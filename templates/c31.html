@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Carbon Cycle Modeling</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 40px;
+      line-height: 1.6;
+      background-color: #fdfdfd;
+      color: #333;
+    }
+    h2, h3 {
+      color: #2a4d69;
+    }
+    h2 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+    .equation {
+      background: #f0f8ff;
+      padding: 10px;
+      margin: 10px 0;
+      border-left: 4px solid #4682b4;
+      font-style: italic;
+    }
+  </style>
+  <!-- MathJax for LaTeX rendering -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head>
+<body>
+
+  <h2>Carbon Cycle Modeling</h2>
+  <p>The carbon cycle describes the movement of carbon among Earth’s major reservoirs: the atmosphere, ocean, terrestrial biosphere, and lithosphere. Mathematical models help simulate carbon fluxes and predict future CO<sub>2</sub> levels under different scenarios.</p>
+
+  <h3>1. Box Model Formulation</h3>
+  <p>One common approach is the compartment (box) model, where each reservoir is represented as a "box" with carbon fluxes between them.</p>
+
+  <p>Let:</p>
+  <ul>
+    <li>\( C_A(t) \) = atmospheric CO\(_2\) concentration (in GtC)</li>
+    <li>\( C_L(t) \) = land biosphere carbon</li>
+    <li>\( C_O(t) \) = ocean carbon</li>
+    <li>\( F_{LA}, F_{AL} \) = fluxes between land and atmosphere</li>
+    <li>\( F_{AO}, F_{OA} \) = fluxes between atmosphere and ocean</li>
+    <li>\( E(t) \) = anthropogenic CO\(_2\) emissions</li>
+  </ul>
+
+  <div class="equation">
+    \[
+    \frac{dC_A}{dt} = E(t) + F_{LA}(C_L) + F_{OA}(C_O) - F_{AL}(C_A) - F_{AO}(C_A)
+    \]
+    \[
+    \frac{dC_L}{dt} = F_{AL}(C_A) - F_{LA}(C_L)
+    \]
+    \[
+    \frac{dC_O}{dt} = F_{AO}(C_A) - F_{OA}(C_O)
+    \]
+  </div>
+
+  <h3>2. Example: Simple Linear Flux Model</h3>
+  <p>Assume linear fluxes and a constant emission rate \( E(t) = E_0 \):</p>
+
+  <div class="equation">
+    \[
+    F_{AL} = k_{AL} C_A, \quad F_{LA} = k_{LA} C_L
+    \]
+    \[
+    F_{AO} = k_{AO} C_A, \quad F_{OA} = k_{OA} C_O
+    \]
+  </div>
+
+  <p>Substituting into the ODEs:</p>
+  <div class="equation">
+    \[
+    \frac{dC_A}{dt} = E_0 + k_{LA} C_L + k_{OA} C_O - (k_{AL} + k_{AO}) C_A
+    \]
+    \[
+    \frac{dC_L}{dt} = k_{AL} C_A - k_{LA} C_L
+    \]
+    \[
+    \frac{dC_O}{dt} = k_{AO} C_A - k_{OA} C_O
+    \]
+  </div>
+
+  <p>These coupled ODEs can be solved numerically using methods like Runge-Kutta to analyze carbon concentration trends over time.</p>
+
+  <h3>3. Application in Climate Models</h3>
+  <p>Carbon cycle models are crucial for:</p>
+  <ul>
+    <li>Estimating atmospheric CO\(_2\) in emission scenarios (e.g., RCP/SSP)</li>
+    <li>Assessing carbon sinks and sources</li>
+    <li>Coupling with climate models to account for feedbacks</li>
+  </ul>
+
+</body>
+</html>
